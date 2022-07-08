@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Settings"
+    xmlns:viewmodel="clr-namespace:OA.Public.Maui.SampleApp.ViewModels"
+    x:Class="OA.Public.Maui.SampleApp.Views.SettingsPage"
+    x:DataType="viewmodel:SettingsViewModel">
+
+    <ContentPage.Content>
+        <ContentView Grid.Row="2">
+                <Grid Grid.Row="2" RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto"
+              ColumnDefinitions="2*,8*"
+              Padding="16">
+                    <Switch HorizontalOptions="Center"
+                           Grid.Row="4"
+                           IsToggled="{Binding IsDarkModeEnabled}"
+                           Margin="0,24,0,0"/>
+                    <Label Text="Dark Mode" 
+                           Grid.Column="1"
+                           Grid.Row="4" 
+                           Margin="0,24,0,0"
+                           VerticalOptions="Center"/>
+                    <Switch HorizontalOptions="Center"
+                           Grid.Row="5"
+                           IsVisible="{OnIdiom Default=false,Phone=true}"
+                           IsToggled="{Binding IsWifiOnlyEnabled}"
+                           Margin="0,24,0,0"/>
+                    <Label Text="Only Wifi" 
+                           Grid.Column="1"
+                           Grid.Row="5" 
+                           Margin="0,24,0,0"
+                           IsVisible="{OnIdiom Default=false,Phone=true}"
+                           VerticalOptions="Center"/>
+                </Grid>
+            </ContentView>
+    </ContentPage.Content>
+</ContentPage>

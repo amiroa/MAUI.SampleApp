@@ -8,9 +8,9 @@ public static class MauiProgram
 		builder
 			.UseMauiApp<App>()
             .ConfigureEssentials()
-            //.ConfigureServices()
+            .ConfigureServices()
             .ConfigurePages()
-            //.ConfigureViewModels()
+            .ConfigureViewModels()
             .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

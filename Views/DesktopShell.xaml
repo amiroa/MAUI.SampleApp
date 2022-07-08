@@ -10,22 +10,23 @@
 
     <Shell.FlyoutHeader>
         <Grid>
-            <!--<Image Source="{AppThemeBinding Dark=dotnet_bot.png,Light=dotnet_bot.png}"
+            <Image Source="{AppThemeBinding Dark=dotnet_bot.png,Light=dotnet_bot.png}"
                    SemanticProperties.Description="OA MAUI Sample App"
-                   HeightRequest="120"
+                   Margin="30, 20"
+                   HeightRequest="65"
                    VerticalOptions="Center"
-                   WidthRequest="230"
-                   HorizontalOptions="Center" />-->
+                   WidthRequest="65"
+                   HorizontalOptions="Start" />
         </Grid>
     </Shell.FlyoutHeader>
 
-    <!--<ShellContent Title="{Binding PrintersList.Title}"
-                  Icon="{AppThemeBinding Light=printjobs.png, Dark=printjobs.png}"
-                  ContentTemplate="{DataTemplate pages:PrintersListView}"/>-->
-    <!--<ShellContent Title="{Binding Settings.Title}"
+    <ShellContent Title="{Binding PrintersList.Title}"
+                  Icon="{AppThemeBinding Light=printers.png, Dark=printers.png}"
+                  ContentTemplate="{DataTemplate pages:PrintersListView}"/>
+    <ShellContent Title="{Binding Settings.Title}"
                   Icon="{AppThemeBinding Light=settings.png, Dark=settings.png}"
                   ContentTemplate="{DataTemplate pages:SettingsPage}" />
     <ShellContent Title="{Binding About.Title}"
                   Icon="{AppThemeBinding Light=about.png, Dark=about.png}"
-                  ContentTemplate="{DataTemplate pages:AboutPage}" />-->
+                  ContentTemplate="{DataTemplate pages:AboutPage}" />
 </Shell>

@@ -1,4 +1,6 @@
-﻿namespace OA.Public.Maui.SampleApp;
+﻿using Application = Microsoft.Maui.Controls.Application;
+
+namespace OA.Public.Maui.SampleApp;
 
 public partial class App : Application
 {
@@ -13,11 +15,10 @@ public partial class App : Application
         else
             MainPage = new MobileShell();
 
-        Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
-        //Routing.RegisterRoute(nameof(PrintersListView), typeof(PrintersListView));
-        //Routing.RegisterRoute(nameof(AddEditPrinterPage), typeof(AddEditPrinterPage));
-        //Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
-        //Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
+        Routing.RegisterRoute(nameof(PrintersListView), typeof(PrintersListView));
+        Routing.RegisterRoute(nameof(AddEditPrinterPage), typeof(AddEditPrinterPage));
+        Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
+        Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
 
     }
 }

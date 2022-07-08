@@ -7,17 +7,17 @@
        x:DataType="viewmodels:ShellViewModel"
        x:Class="OA.Public.Maui.SampleApp.Views.MobileShell">
     <TabBar>
-        <!--<Tab Title="{Binding PrintersList.Title}"
+        <Tab Title="{Binding PrintersList.Title}"
              Icon="{Binding PrintersList.Icon}">
             <ShellContent ContentTemplate="{DataTemplate pages:PrintersListView}" />
-        </Tab>-->
-        <!--<Tab Title="{Binding Settings.Title}"
+        </Tab>
+        <Tab Title="{Binding Settings.Title}"
              Icon="{Binding Settings.Icon}">
             <ShellContent ContentTemplate="{DataTemplate pages:SettingsPage}" />
         </Tab>
         <Tab Title="{Binding About.Title}"
              Icon="{Binding About.Icon}">
             <ShellContent ContentTemplate="{DataTemplate pages:AboutPage}" />
-        </Tab>-->
+        </Tab>
     </TabBar>
 </Shell>
