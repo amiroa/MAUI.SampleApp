@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:mcb="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+            xmlns:mcc="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
+             x:Class="OA.Public.Maui.SampleApp.Views.AddEditPrinterPage">
+    <ContentPage.Content>
+        <Grid
+        RowDefinitions="*, Auto">
+            <StackLayout
+            Grid.Row="0">
+                <StackLayout
+                Spacing="5">
+                    <Label
+                    Text="Name"></Label>
+                    <Frame
+                    x:Name="NameFrame">
+                        <Entry
+                        Placeholder="Enter task name"
+                        Text="{Binding PrinterInfoItem.Name}">
+                            <Entry.Behaviors>
+                                <mcb:EventToCommandBehavior
+                                EventName="Completed"
+                                Command="{Binding CreateCommand}"></mcb:EventToCommandBehavior>
+                                <mcb:UserStoppedTypingBehavior
+							    Command="{Binding ValidateCommand}"
+							    CommandParameter="name"
+                                StoppedTypingTimeThreshold="50"
+                                ShouldDismissKeyboardAutomatically="False"/>
+                            </Entry.Behaviors>
+                        </Entry>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <Button
+            x:Name="AddButton"
+            Command="{Binding CreateCommand}"
+            Grid.Row="1"
+            Margin="0, 0, 0, 15"
+            VerticalOptions="End">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup>
+                        <VisualState x:Name="task">
+                            <VisualState.StateTriggers>
+                                <StateTrigger IsActive="{Binding Mode, Converter={mcc:IsEqualConverter}, ConverterParameter='Edit'}"></StateTrigger>
+                            </VisualState.StateTriggers>
+                            <VisualState.Setters>
+                                <Setter Property="Text" Value="Save"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="list">
+                            <VisualState.StateTriggers>
+                                <StateTrigger IsActive="{Binding Mode, Converter={mcc:IsEqualConverter}, ConverterParameter='Add'}"></StateTrigger>
+                            </VisualState.StateTriggers>
+                            <VisualState.Setters>
+                                <Setter Property="Text" Value="Add new printer"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

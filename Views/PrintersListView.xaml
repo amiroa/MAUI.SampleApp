@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OA.Public.Maui.SampleApp.Views.PrintersListView"
+             ColumnDefinitions="Auto, *"
+             ColumnSpacing="15"
+             Padding="25, 15"
+             RowDefinitions="Auto, Auto"
+             RowSpacing="0">
+    
+    
+</Grid>
+<!--
+<telerik:RadContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
+                        x:Class="OA.Public.Maui.SampleApp.Views.PrintersListView"
+                        xmlns:viewmodel="clr-namespace:OA.Public.Maui.SampleApp.ViewModels"
+                        Margin="5"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource LightCardBackgroundColor}, Dark={StaticResource DarkCardBackgroundColor}}">
+    <telerik:RadContentView.Content>
+        <telerik:RadListView x:Name="listView" 
+                             ItemsSource="{Binding PrinterInfoList}"
+                             SelectionMode="None">
+            <telerik:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <telerik:ListViewTemplateCell>
+                        <telerik:ListViewTemplateCell.View>
+                            <telerik:RadBorder BorderThickness="0, 0, 0, 1"
+                                               BackgroundColor="White"
+                                               BorderColor="#b1b1b1">
+                                <Grid RowDefinitions="Auto" 
+                                      ColumnSpacing="5"
+                                      ColumnDefinitions="Auto,*,Auto">
+                                    <telerik:RadBorder CornerRadius="20" 
+                                                       WidthRequest="40" 
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="Center"
+                                                       BackgroundColor="{AppThemeBinding Light={StaticResource DarkCardBackgroundColor}, Dark={StaticResource LightCardBackgroundColor}}" 
+                                                       Padding="12,6"
+                                                       Margin="10"
+                                                       HeightRequest="40">
+                                        <Label FontSize="20"
+                                               Text="{Binding Name, Converter={StaticResource NameToAbbreviationConverter}}"
+                                               TextColor="#FFFFFFDE"
+                                               VerticalOptions="Center" 
+                                               HorizontalOptions="Center"/>
+                                    </telerik:RadBorder>
+                                    <VerticalStackLayout Grid.Column="1" 
+                                                         Spacing="3"
+                                                         Margin="0,6,0,6"
+                                                         VerticalOptions="Center">
+                                        <Label Text="{Binding Name}" 
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Start"
+                                               FontSize="14"
+                                               FontAttributes="Bold"
+                                               TextColor="Black"/>
+                                        <Label Text="{Binding DisplayName}"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Start"
+                                               TextColor="{AppThemeBinding Light='#99000000'}" 
+                                               FontSize="12"/>
+                                        <Label Text="{Binding Description}"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Start"
+                                               TextColor="{AppThemeBinding Light='#7E7E7E'}" 
+                                               FontSize="10"/>
+                                    </VerticalStackLayout>
+                                    <telerik:RadBorder 
+                                                Grid.Column="2"
+                                                CornerRadius="9" 
+                                                WidthRequest="18" 
+                                                HeightRequest="18"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="End"
+                                                BackgroundColor="{Binding IsActive, Converter={StaticResource BoolToColorConverter}}" 
+                                                Margin="15">
+                                        <Label FontSize="10"
+                                               Text="{Binding IsActive, Converter={StaticResource BoolToEnabledDisabledConverter}}"
+                                               TextColor="#FFFFFFDE"
+                                               VerticalOptions="Center" 
+                                               HorizontalOptions="Center"/>
+                                    </telerik:RadBorder>
+                                </Grid>
+                            </telerik:RadBorder>
+                        </telerik:ListViewTemplateCell.View>
+                    </telerik:ListViewTemplateCell>
+                </DataTemplate>
+            </telerik:RadListView.ItemTemplate>
+        </telerik:RadListView>
+    </telerik:RadContentView.Content>
+</telerik:RadContentView>
+-->
+    

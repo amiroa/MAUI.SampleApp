@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:pages="clr-namespace:OA.Public.Maui.SampleApp.Views"
+       FlyoutBehavior="Flyout"
+       xmlns:root="clr-namespace:OA.Public.Maui.SampleApp"
+       xmlns:viewmodels="clr-namespace:OA.Public.Maui.SampleApp.ViewModels"
+       x:DataType="viewmodels:ShellViewModel"
+       x:Class="OA.Public.Maui.SampleApp.Views.DesktopShell">
+
+    <Shell.FlyoutHeader>
+        <Grid>
+            <!--<Image Source="{AppThemeBinding Dark=dotnet_bot.png,Light=dotnet_bot.png}"
+                   SemanticProperties.Description="OA MAUI Sample App"
+                   HeightRequest="120"
+                   VerticalOptions="Center"
+                   WidthRequest="230"
+                   HorizontalOptions="Center" />-->
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <!--<ShellContent Title="{Binding PrintersList.Title}"
+                  Icon="{AppThemeBinding Light=printjobs.png, Dark=printjobs.png}"
+                  ContentTemplate="{DataTemplate pages:PrintersListView}"/>-->
+    <!--<ShellContent Title="{Binding Settings.Title}"
+                  Icon="{AppThemeBinding Light=settings.png, Dark=settings.png}"
+                  ContentTemplate="{DataTemplate pages:SettingsPage}" />
+    <ShellContent Title="{Binding About.Title}"
+                  Icon="{AppThemeBinding Light=about.png, Dark=about.png}"
+                  ContentTemplate="{DataTemplate pages:AboutPage}" />-->
+</Shell>
