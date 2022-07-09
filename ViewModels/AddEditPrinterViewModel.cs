@@ -65,7 +65,7 @@ namespace OA.Public.Maui.SampleApp.ViewModels
                         CommunicationType = PrinterCommunicationType.Network,
                         NetworkIPAddress = "192.168.192.168",
                         NetworkPort = "9100",
-                        IsPrinterMonitorAcvtive = false,
+                        IsPrinterMonitorActive = false,
                         CreatedOn = DateTime.Now,
                         IsActive = false
                     };
@@ -96,7 +96,7 @@ namespace OA.Public.Maui.SampleApp.ViewModels
                         CommunicationType = PrinterCommunicationType.Network,
                         NetworkIPAddress = "192.168.192.168",
                         NetworkPort = "9100",
-                        IsPrinterMonitorAcvtive = false,
+                        IsPrinterMonitorActive = false,
                         CreatedOn = DateTime.Now,
                         IsActive = false
                     };

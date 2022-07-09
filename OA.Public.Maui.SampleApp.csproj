@@ -64,12 +64,15 @@
 	  <Compile Update="Views\AboutPage.xaml.cs">
 	    <DependentUpon>AboutPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\PrintersListView.xaml.cs">
-	    <DependentUpon>PrintersListView.xaml</DependentUpon>
+	  <Compile Update="Views\PrintersListPage.xaml.cs">
+	    <DependentUpon>PrintersListPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Resources\Styles\DefaultTheme.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AddEditPrinterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -79,7 +82,7 @@
 	  <MauiXaml Update="Views\MobileShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\PrintersListView.xaml">
+	  <MauiXaml Update="Views\PrintersListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SettingsPage.xaml">

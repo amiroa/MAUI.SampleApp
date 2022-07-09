@@ -1,8 +1,8 @@
 ﻿namespace OA.Public.Maui.SampleApp.Views;
 
-public partial class PrintersListView : ContentPage
+public partial class PrintersListPage : ContentPage
 {
-    public PrintersListView(PrintersListViewModel vm)
+    public PrintersListPage(PrintersListViewModel vm)
     {
         InitializeComponent();
         this.BindingContext = vm;

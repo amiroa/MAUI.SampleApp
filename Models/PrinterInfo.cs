@@ -35,7 +35,7 @@ namespace OA.Public.Maui.SampleApp.Models
 
         public string NetworkPort { get; set; }
 
-        public bool IsPrinterMonitorAcvtive { get; set; }
+        public bool IsPrinterMonitorActive { get; set; }
 
         public string Options { get; set; }
 

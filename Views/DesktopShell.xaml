@@ -22,7 +22,7 @@
 
     <ShellContent Title="{Binding PrintersList.Title}"
                   Icon="{AppThemeBinding Light=printers.png, Dark=printers.png}"
-                  ContentTemplate="{DataTemplate pages:PrintersListView}"/>
+                  ContentTemplate="{DataTemplate pages:PrintersListPage}"/>
     <ShellContent Title="{Binding Settings.Title}"
                   Icon="{AppThemeBinding Light=settings.png, Dark=settings.png}"
                   ContentTemplate="{DataTemplate pages:SettingsPage}" />

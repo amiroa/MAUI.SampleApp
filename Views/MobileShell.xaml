@@ -9,7 +9,7 @@
     <TabBar>
         <Tab Title="{Binding PrintersList.Title}"
              Icon="{Binding PrintersList.Icon}">
-            <ShellContent ContentTemplate="{DataTemplate pages:PrintersListView}" />
+            <ShellContent ContentTemplate="{DataTemplate pages:PrintersListPage}" />
         </Tab>
         <Tab Title="{Binding Settings.Title}"
              Icon="{Binding Settings.Icon}">

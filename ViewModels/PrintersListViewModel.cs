@@ -1,26 +1,74 @@
 ﻿using MvvmHelpers;
+using MvvmHelpers.Commands;
+using OA.Public.Maui.SampleApp.Services.Database;
 
 namespace OA.Public.Maui.SampleApp.ViewModels
 {
     public class PrintersListViewModel : BaseViewModel
-    {
+    {      
+        public ObservableCollection<PrinterInfo> PrinterInfoList { get; set; }
+        
+        public AsyncCommand RefreshCommand { get; }                
+        public AsyncCommand AddCommand { get; }        
+        public AsyncCommand<PrinterInfo> RemoveCommand { get; }
+        public AsyncCommand<PrinterInfo> EditCommand { get; }
+
+
         public PrintersListViewModel()
-        {
-            this.PrinterInfoList = new ObservableCollection<PrinterInfo>()
-            {
-                new PrinterInfo() { Id = 1, Name = "Main", DisplayName = "Main Printer", Description = "This is the Main printer", 
-                    AccessKey = "88b5828b87024c8783b7a95c2081dd", AccessCode = "ofo112233", 
-                    CommunicationType = PrinterCommunicationType.Network, NetworkIPAddress = "192.168.192.168", NetworkPort = "9100", IsPrinterMonitorAcvtive = false,
-                    CreatedOn = DateTime.Now, IsActive = true
-                },
-                new PrinterInfo() { Id = 2, Name = "Kitchen", DisplayName = "Kitchen Printer", Description = "This is the Kitchen printer",
-                    AccessKey = "88b5828b87024c8783b7a95c2081dd", AccessCode = "ofo112233",
-                    CommunicationType = PrinterCommunicationType.Network, NetworkIPAddress = "192.168.192.168", NetworkPort = "9100", IsPrinterMonitorAcvtive = false,
-                    CreatedOn = DateTime.Now, IsActive = false
-                }
-            };
+        {            
+            Title = "Printers";
+
+            PrinterInfoList = new ObservableCollection<PrinterInfo>();
+            
+            RefreshCommand = new AsyncCommand(Refresh);
+            AddCommand = new AsyncCommand(Add);
+            RemoveCommand = new AsyncCommand<PrinterInfo>(Remove);
+            EditCommand = new AsyncCommand<PrinterInfo>(Edit);
         }
 
-        public ObservableCollection<PrinterInfo> PrinterInfoList { get; set; }
+        async Task Add()
+        {
+            await DatabaseService.Add(new PrinterInfo()
+            {
+                Id = 2,
+                Name = "Kitchen",
+                DisplayName = "Kitchen Printer",
+                Description = "This is the Kitchen printer",
+                AccessKey = "88b5828b87024c8783b7a95c2081dd",
+                AccessCode = "ofo112233",
+                CommunicationType = PrinterCommunicationType.Network,
+                NetworkIPAddress = "192.168.192.168",
+                NetworkPort = "9100",
+                IsPrinterMonitorActive = false,
+                CreatedOn = DateTime.Now,
+                IsActive = false
+            });
+            await Refresh();
+        }
+
+        async Task Remove(PrinterInfo printerInfo)
+        {
+            await DatabaseService.Remove(printerInfo);
+            await Refresh();
+        }
+
+        async Task Edit(PrinterInfo printerInfo)
+        {
+            //Edit record
+            await Refresh();
+        }
+
+        async Task Refresh()
+        {
+            IsBusy = true;
+
+            //Reload list
+            PrinterInfoList.Clear();
+            var printers = await DatabaseService.GetAll<PrinterInfo>();
+            printers.ForEach(p => PrinterInfoList.Add(p));
+
+            IsBusy = false;
+        }
+
     }
 }

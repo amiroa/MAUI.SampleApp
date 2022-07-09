@@ -9,7 +9,7 @@ public class ShellViewModel
 
     public ShellViewModel()
     {
-        PrintersList = new AppSection() { Title = "Printers", Icon = "printer.png", IconDark= "printer.png", TargetType = typeof(PrintersListView) };
+        PrintersList = new AppSection() { Title = "Printers", Icon = "printer.png", IconDark= "printer.png", TargetType = typeof(PrintersListPage) };
         Settings = new AppSection() { Title = "Settings", Icon = "settings.png", IconDark="settings.png", TargetType = typeof(SettingsPage) };
         About = new AppSection() { Title = "About", Icon = "about.png", IconDark = "about.png", TargetType = typeof(AboutPage) };
     }
