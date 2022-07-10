@@ -2,10 +2,20 @@
 
 public partial class PrintersListPage : ContentPage
 {
-    public PrintersListPage(PrintersListViewModel vm)
+    PrintersListViewModel _viewModel;
+
+    public PrintersListPage(PrintersListViewModel viewModel)
     {
         InitializeComponent();
-        this.BindingContext = vm;
+        _viewModel = viewModel;
+        this.BindingContext = viewModel;
 
+    }
+
+    protected override async void OnAppearing()
+    {
+        await _viewModel.Refresh();
+
+        base.OnAppearing();
     }
 }

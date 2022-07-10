@@ -64,7 +64,7 @@ namespace OA.Public.Maui.SampleApp.ViewModels
             await Refresh();
         }
 
-        async Task Refresh()
+        public async Task Refresh()
         {
             IsBusy = true;
 
