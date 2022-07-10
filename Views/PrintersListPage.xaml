@@ -5,7 +5,7 @@
              xmlns:viewmodels="clr-namespace:OA.Public.Maui.SampleApp.ViewModels"
              xmlns:models="clr-namespace:OA.Public.Maui.SampleApp.Models"
              x:Name="this"
-             BackgroundColor="White"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource Black},Light={StaticResource White}}"
              x:DataType="viewmodels:PrintersListViewModel">
 
     <ContentPage.ToolbarItems>
@@ -13,80 +13,90 @@
     </ContentPage.ToolbarItems>
 
     <CollectionView ItemsSource="{Binding PrinterInfoList}"
+                    BackgroundColor="Transparent"                    
                         SelectionMode="None"
-                        Margin="{OnIdiom Phone='10,0', Default='10,20,10,0'}">
+                        Margin="{OnIdiom Phone='5,0', Default='10,20,10,0'}">
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="models:PrinterInfo">
-                <Grid Margin="0,15"
-                          Padding="5,0"
-                          ColumnDefinitions="auto,auto,auto,auto,*"
-                          ColumnSpacing="20"
-                          RowDefinitions="40, auto, auto">
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:PrintersListViewModel}}, Path=EditCommand}"
-                                                  CommandParameter="{Binding}" />
-                    </Grid.GestureRecognizers>
-                    <HorizontalStackLayout
-                        Grid.Column="0"
-                        Grid.Row="0">
-                        <Button 
-                            Text="Edit"
-                            Margin="0,0,5,0"
-                            HeightRequest="35"
-                            VerticalOptions="Center"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:PrintersListViewModel}}, Path=EditCommand}"
-                            CommandParameter="{Binding}"
-                            WidthRequest="75">
-                        </Button>
-                        <Button 
-                            Text="Delete"                                     
-                            Margin="0,0,0,0"
-                            HeightRequest="35"
-                            VerticalOptions="Center"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:PrintersListViewModel}}, Path=RemoveCommand}"
-                            CommandParameter="{Binding}"
-                            WidthRequest="75">
-                        </Button>
-                    </HorizontalStackLayout>
+                <Frame 
+                    Margin="2,5,5,5"
+                    Padding="5,5" 
+                    HasShadow="True"
+                    BorderColor="Gray"
+                    CornerRadius="10"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource Grey7},Light={StaticResource Grey3}}">
+                    <Grid 
+                        Margin="0,0"
+                              Padding="5,5"
+                              ColumnDefinitions="auto,auto,auto,auto,*"
+                              ColumnSpacing="20"
+                              RowDefinitions="40, auto, auto">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:PrintersListViewModel}}, Path=EditCommand}"
+                                                      CommandParameter="{Binding}" />
+                        </Grid.GestureRecognizers>
+                        <HorizontalStackLayout
+                            Grid.Column="0"
+                            Grid.Row="0">
+                            <Button 
+                                Text="Edit"
+                                Margin="0,0,5,0"
+                                HeightRequest="35"
+                                VerticalOptions="Center"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:PrintersListViewModel}}, Path=EditCommand}"
+                                CommandParameter="{Binding}"
+                                WidthRequest="75">
+                            </Button>
+                            <Button 
+                                Text="Delete"                                     
+                                Margin="0,0,0,0"
+                                HeightRequest="35"
+                                VerticalOptions="Center"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:PrintersListViewModel}}, Path=RemoveCommand}"
+                                CommandParameter="{Binding}"
+                                WidthRequest="75">
+                            </Button>
+                        </HorizontalStackLayout>
 
-                    <Label Grid.Column="1"
-                               Grid.Row="1"
-                               Style="{StaticResource BodySLabelStyle}"
-                               Text="{Binding Id}" />
-                    <Label Grid.Column="2"
-                               Grid.Row="1"
-                               Style="{StaticResource BodySLabelStyle}"
-                               Text="{Binding DisplayName}" />
-                    <Label Grid.Column="3"
-                               Grid.Row="1"
-                               Style="{StaticResource BodySLabelStyle}"
-                               Text="{Binding Description}" />
-                    <Label Grid.Column="1"
-                               Grid.Row="0"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="Center"
-                               Style="{StaticResource LinkLLabelStyle}"
-                               Text="{Binding Name}" />
+                        <Label Grid.Column="1"
+                                   Grid.Row="1"
+                                   Style="{StaticResource BodySLabelStyle}"
+                                   Text="{Binding Id}" />
+                        <Label Grid.Column="2"
+                                   Grid.Row="1"
+                                   Style="{StaticResource BodySLabelStyle}"
+                                   Text="{Binding DisplayName}" />
+                        <Label Grid.Column="3"
+                                   Grid.Row="1"
+                                   Style="{StaticResource BodySLabelStyle}"
+                                   Text="{Binding Description}" />
+                        <Label Grid.Column="1"
+                                   Grid.Row="0"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="Center"
+                                   Style="{StaticResource LinkLLabelStyle}"
+                                   Text="{Binding Name}" />
 
-                    <Label Grid.Column="1"
-                               Grid.Row="2"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="Center"
-                               Style="{StaticResource BodySLabelStyle}"
-                               Text="{Binding IsActive}" />
-                    <Label Grid.Column="2"
-                               Grid.Row="2"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="Center"
-                               Style="{StaticResource BodySLabelStyle}"
-                               Text="{Binding CommunicationType}" />
-                    <Label Grid.Column="3"
-                               Grid.Row="2"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="Center"
-                               Style="{StaticResource BodySLabelStyle}"
-                               Text="{Binding IsPrinterMonitorActive}" />
-                </Grid>
+                        <Label Grid.Column="1"
+                                   Grid.Row="2"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="Center"
+                                   Style="{StaticResource BodySLabelStyle}"
+                                   Text="{Binding IsActive}" />
+                        <Label Grid.Column="2"
+                                   Grid.Row="2"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="Center"
+                                   Style="{StaticResource BodySLabelStyle}"
+                                   Text="{Binding CommunicationType}" />
+                        <Label Grid.Column="3"
+                                   Grid.Row="2"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="Center"
+                                   Style="{StaticResource BodySLabelStyle}"
+                                   Text="{Binding IsPrinterMonitorActive}" />
+                    </Grid>
+                </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
         <CollectionView.Footer>

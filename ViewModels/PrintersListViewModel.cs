@@ -48,8 +48,14 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
         async Task Remove(PrinterInfo printerInfo)
         {
-            await DatabaseService.Remove(printerInfo);
-            await Refresh();
+            App.AlertSvc.ShowConfirmation("Warning", "Are you sure you want to delete the selcted Printer?", (async (result) =>
+            {
+                if (result)
+                {
+                    await DatabaseService.Remove(printerInfo);
+                    await Refresh();
+                }
+            }));
         }
 
         async Task Edit(PrinterInfo printerInfo)

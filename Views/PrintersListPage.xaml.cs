@@ -6,5 +6,6 @@ public partial class PrintersListPage : ContentPage
     {
         InitializeComponent();
         this.BindingContext = vm;
+
     }
 }

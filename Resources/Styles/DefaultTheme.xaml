@@ -7,10 +7,10 @@
 
     <Color x:Key="Black">#000000</Color>
     <Color x:Key="Dark">#1F1F1F</Color>
-    <Color x:Key="Primary">#c00cc0</Color>
-    <Color x:Key="PrimaryLight">#DD0EB3</Color>
-    <Color x:Key="PrimaryDark">#8B0995</Color>
-    <Color x:Key="Secondary">#E10890</Color>
+    <Color x:Key="Primary">#ff7043</Color>
+    <Color x:Key="PrimaryLight">#f7c7b7</Color>
+    <Color x:Key="PrimaryDark">#bf360c</Color>
+    <Color x:Key="Secondary">#bf360c</Color>
     <Color x:Key="PrimaryExtraLight">#FCF2F7</Color>
     <Color x:Key="White">#FFFFFF</Color>
     <Color x:Key="Grey1">#FAF9F8</Color>
@@ -197,7 +197,7 @@
                     <VisualState x:Name="Normal">
                         <VisualState.Setters>
                             <Setter Property="BackgroundColor"
-                                    Value="Red" />
+                                    Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Primary}}" />
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState x:Name="Disabled">

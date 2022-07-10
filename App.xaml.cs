@@ -4,9 +4,15 @@ namespace OA.Public.Maui.SampleApp;
 
 public partial class App : Application
 {
-	public App()
+    public static IServiceProvider Services;
+    public static IAlertService AlertSvc;
+
+    public App(IServiceProvider provider)
 	{
 		InitializeComponent();
+
+        Services = provider;
+        AlertSvc = Services.GetService<IAlertService>();
 
         TheTheme.SetTheme();
 
