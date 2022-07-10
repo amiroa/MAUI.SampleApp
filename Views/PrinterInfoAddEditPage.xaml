@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="OA.Public.Maui.SampleApp.Views.PrinterInfoAddEditPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:OA.Public.Maui.SampleApp.Models"
+             xmlns:viewmodels="clr-namespace:OA.Public.Maui.SampleApp.ViewModels"
+             x:Name="this"
+             Title="{Binding PrinterInfo.PrinterInfo.Name}"
+             Style="{StaticResource DetailPageStyle}"
+             x:DataType="viewmodels:PrinterInfoAddEditViewModel">
+    <Grid Background="{AppThemeBinding Light={StaticResource Grey1}, Dark={StaticResource Grey9}}">
+
+    </Grid>
+</ContentPage>

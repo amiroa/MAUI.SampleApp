@@ -4,9 +4,10 @@ public static class PagesExtensions
 {
     public static MauiAppBuilder ConfigurePages(this MauiAppBuilder builder)
     {
-        // main tabs of the app
+        builder.Services.AddSingleton<AddEditPrinterPage>();
+
+        builder.Services.AddSingleton<PrinterInfoAddEditPage>();
         builder.Services.AddSingleton<PrintersListPage>();
-        //builder.Services.AddSingleton<AddEditPrinterPage>();
         builder.Services.AddSingleton<AboutPage>();
         builder.Services.AddSingleton<SettingsPage>();
 

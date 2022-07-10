@@ -18,7 +18,7 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
         #region Properties
 
-        public ObservableCollection<PrinterInfo> PrinterInfoItem { get; set; }
+        public PrinterInfo PrinterInfo { get; set; }
 
         public string Mode { get; set; }
 
@@ -41,7 +41,6 @@ namespace OA.Public.Maui.SampleApp.ViewModels
             CreateCommand = new Command(CreateCommandHandler);
             OpenListDialogCommand = new Command(OpenListDialogCommandHandler);
 
-            InitForm();
         }
 
         #endregion
@@ -136,10 +135,6 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
         #region Private Methods
 
-        private void InitForm()
-        {
-
-        }
 
         #endregion
     }

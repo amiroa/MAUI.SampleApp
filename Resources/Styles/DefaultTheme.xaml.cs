@@ -1,4 +1,4 @@
-﻿namespace Microsoft.NetConf2021.Maui.Resources.Styles;
+﻿namespace OA.Public.Maui.SampleApp.Resources.Styles;
 
 public partial class DefaultTheme : ResourceDictionary
 {

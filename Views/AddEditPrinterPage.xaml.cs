@@ -8,11 +8,22 @@ namespace OA.Public.Maui.SampleApp.Views
         {
             InitializeComponent();
             BindingContext = vm;
+
+            vm.Mode = "Add";
+
+            if (vm.Mode == "Edit")
+            {
+                Title = "Edit Printer";
+            }
+            else
+            {
+                Title = "Add Printer";
+            }
         }
 
-        protected override void OnNavigatedTo(NavigatedToEventArgs args)
-        {
-            base.OnNavigatedTo(args);
-        }
+        //protected override void OnNavigatedTo(NavigatedToEventArgs args)
+        //{
+        //    base.OnNavigatedTo(args);
+        //}
     }
 }

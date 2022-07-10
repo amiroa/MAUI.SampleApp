@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OA.Public.Maui.SampleApp.Models
 {
-    public class PrinterInfo
+    public class PrinterInfo : ObservableObject
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

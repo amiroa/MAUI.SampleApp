@@ -1,63 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:mcb="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
-            xmlns:mcc="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
-             x:Class="OA.Public.Maui.SampleApp.Views.AddEditPrinterPage">
+             xmlns:mcb="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:mcc="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
+             xmlns:viewmodels="clr-namespace:OA.Public.Maui.SampleApp.ViewModels"
+             xmlns:models="clr-namespace:OA.Public.Maui.SampleApp.Models"
+             x:Class="OA.Public.Maui.SampleApp.Views.AddEditPrinterPage"
+             x:Name="this"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource Black},Light={StaticResource White}}"
+             Style="{StaticResource DetailPageStyle}"
+             x:DataType="viewmodels:AddEditPrinterViewModel">
     <ContentPage.Content>
-        <Grid
-        RowDefinitions="*, Auto">
-            <StackLayout
-            Grid.Row="0">
-                <StackLayout
-                Spacing="5">
-                    <Label
-                    Text="Name"></Label>
-                    <Frame
-                    x:Name="NameFrame">
-                        <Entry
-                        Placeholder="Enter task name"
-                        Text="{Binding PrinterInfoItem.Name}">
-                            <Entry.Behaviors>
-                                <mcb:EventToCommandBehavior
-                                EventName="Completed"
-                                Command="{Binding CreateCommand}"></mcb:EventToCommandBehavior>
-                                <mcb:UserStoppedTypingBehavior
-							    Command="{Binding ValidateCommand}"
-							    CommandParameter="name"
-                                StoppedTypingTimeThreshold="50"
-                                ShouldDismissKeyboardAutomatically="False"/>
-                            </Entry.Behaviors>
-                        </Entry>
-                    </Frame>
-                </StackLayout>
-            </StackLayout>
+        <Grid RowDefinitions="*, Auto">
+            <Grid Grid.Row="0" Margin="10" Padding="5" ColumnSpacing="5" RowSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Text="Name:" />
+                <Entry Grid.Row="0" Grid.Column="1" Placeholder="Enter Name" Text="{Binding PrinterInfo.Name}" />
+
+                <Label Grid.Row="1" Text="Display Name:" />
+                <Entry Grid.Row="1" Grid.Column="1" Placeholder="Enter Display Name" Text="{Binding PrinterInfo.DisplayName}" />
+
+                <Label Grid.Row="2" Text="Description:" />
+                <Entry Grid.Row="2" Grid.Column="1" Placeholder="Enter Description" Text="{Binding PrinterInfo.Description}" />
+
+                <Label Grid.Row="3" Text="Access Key:" />
+                <Entry Grid.Row="3" Grid.Column="1" Placeholder="Enter Access Key" Text="{Binding PrinterInfo.AccessKey}" />
+
+                <Label Grid.Row="4" Text="Access Code:" />
+                <Entry Grid.Row="4" Grid.Column="1" Placeholder="Enter Access Code" Text="{Binding PrinterInfo.AccessCode}" />
+
+                <Label Grid.Row="5" Text="CommunicationType:" />
+                <Entry Grid.Row="5" Grid.Column="1" Placeholder="Enter Communication Type" Text="{Binding PrinterInfo.CommunicationType}" />
+
+                <Label Grid.Row="6" Text="Serial Com Port:" />
+                <Entry Grid.Row="6" Grid.Column="1" Placeholder="Enter Serial Com Port" Text="{Binding PrinterInfo.SerialComPort}" />
+
+                <Label Grid.Row="7" Text="Serial Baud Rate:" />
+                <Entry Grid.Row="7" Grid.Column="1" Placeholder="Enter Serial Baud Rate" Text="{Binding PrinterInfo.SerialBaudRate}" />
+
+
+                <Label Grid.Row="8" Text="Network IP Address:" />
+                <Entry Grid.Row="8" Grid.Column="1" Placeholder="NetworkIPAddress" Text="{Binding PrinterInfo.NetworkIPAddress}"/>
+                    
+                <Label Grid.Row="9" Text="Network Port:" />
+                <Entry Grid.Row="9" Grid.Column="1" Placeholder="NetworkPort" Text="{Binding PrinterInfo.NetworkPort}"/>
+                    
+                <Label Grid.Row="10" Text="Is Printer Monitor Active:" />
+                <Entry Grid.Row="10" Grid.Column="1" Placeholder="Is Printer Monitor Active" Text="{Binding PrinterInfo.IsPrinterMonitorActive}"/>
+            </Grid>
+
             <Button
-            x:Name="AddButton"
-            Command="{Binding CreateCommand}"
-            Grid.Row="1"
-            Margin="0, 0, 0, 15"
-            VerticalOptions="End">
-                <VisualStateManager.VisualStateGroups>
-                    <VisualStateGroup>
-                        <VisualState x:Name="task">
-                            <VisualState.StateTriggers>
-                                <StateTrigger IsActive="{Binding Mode, Converter={mcc:IsEqualConverter}, ConverterParameter='Edit'}"></StateTrigger>
-                            </VisualState.StateTriggers>
-                            <VisualState.Setters>
-                                <Setter Property="Text" Value="Save"/>
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState x:Name="list">
-                            <VisualState.StateTriggers>
-                                <StateTrigger IsActive="{Binding Mode, Converter={mcc:IsEqualConverter}, ConverterParameter='Add'}"></StateTrigger>
-                            </VisualState.StateTriggers>
-                            <VisualState.Setters>
-                                <Setter Property="Text" Value="Add new printer"/>
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateManager.VisualStateGroups>
+                Text="Save"
+                x:Name="AddButton"
+                Command="{Binding CreateCommand}"
+                Grid.Row="1"
+                Margin="0, 0, 0, 15"
+                VerticalOptions="End">
             </Button>
         </Grid>
     </ContentPage.Content>
