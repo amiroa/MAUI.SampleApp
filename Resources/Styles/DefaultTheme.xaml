@@ -2,7 +2,8 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     x:Class="OA.Public.Maui.SampleApp.Resources.Styles.DefaultTheme"
-                    xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls">
+                    xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+                    xmlns:converters="clr-namespace:OA.Public.Maui.SampleApp.Converters">
 
 
     <Color x:Key="Black">#000000</Color>
@@ -23,6 +24,8 @@
     <Color x:Key="Grey8">#3B3A39</Color>
     <Color x:Key="Grey9">#323130</Color>
     <Color x:Key="Grey0">#979797</Color>
+
+    <converters:IsStringEqualConverter x:Key="IsStringEqualConverter"/>
 
     <Style x:Key="BaseStyle"  TargetType="Element">
         <Setter Property="Shell.BackgroundColor" 

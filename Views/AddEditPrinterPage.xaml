@@ -49,13 +49,14 @@
 
                 <Label Grid.Row="5" Text="CommunicationType:*" />
                 <Picker Grid.Row="5" Grid.Column="1" 
-                        x:Name="selectedPrinterCommunicationType"
+                        x:Name="selectedPrinterCommunicationType"                        
                         ItemsSource="{Binding PrinterCommunicationTypes}" 
-                        SelectedItem="{Binding PrinterInfo.CommunicationType}"
-                        />
-                <!-- SelectedIndexChanged="selectedPrinterCommunicationType_SelectedIndexChanged"-->
+                        SelectedItem="{Binding PrinterInfo.CommunicationType}"                        
+                        /><!-- SelectedIndexChanged="selectedPrinterCommunicationType_SelectedIndexChanged"-->
 
-                <VerticalStackLayout Grid.Row="6" Grid.ColumnSpan="2" IsVisible="{Binding PrinterInfo.CommunicationType, Converter={mcc:IsEqualConverter}, ConverterParameter='Serial'}">
+                <VerticalStackLayout Grid.Row="6" Grid.ColumnSpan="2" 
+                                     BindingContext="{x:Reference selectedPrinterCommunicationType}"
+                                     IsVisible="{Binding Value, Converter={StaticResource IsStringEqualConverter}, ConverterParameter='Serial'}">
                     <Grid Grid.Row="0" Margin="0,10" Padding="0,5" ColumnSpacing="0" RowSpacing="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="180" />

@@ -25,9 +25,9 @@ namespace OA.Public.Maui.SampleApp.Models
 
         public string Description { get; set; }
 
-        public PrinterCommunicationType CommunicationType { get; set; }
+        public string CommunicationType { get; set; }
 
-        public SerialComPort SerialComPort { get; set; }
+        public string SerialComPort { get; set; }
 
         public int SerialBaudRate { get; set; }
 

@@ -1,13 +1,8 @@
-﻿using MvvmHelpers;
-using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Globalization;
-using System.Windows.Input;
+﻿using System.ComponentModel;
 
 namespace OA.Public.Maui.SampleApp.ViewModels
 {
-    public class AddEditPrinterViewModel : BaseViewModel
+    public class AddEditPrinterViewModel : BaseViewModel, INotifyPropertyChanged
     {
         #region Private & Protected
 
@@ -22,9 +17,9 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
         public string Mode { get; set; }
 
-        public IEnumerable<SerialComPort> SerialComPorts { get => Enum.GetValues(typeof(SerialComPort)).Cast<SerialComPort>(); }
+        public IEnumerable<string> SerialComPorts { get => Enum.GetValues(typeof(SerialComPort)).Cast<SerialComPort>().Select(v => v.ToString()).ToList(); }
 
-        public IEnumerable<PrinterCommunicationType> PrinterCommunicationTypes { get => Enum.GetValues(typeof(PrinterCommunicationType)).Cast<PrinterCommunicationType>(); }
+        public IEnumerable<string> PrinterCommunicationTypes { get => Enum.GetValues(typeof(PrinterCommunicationType)).Cast<PrinterCommunicationType>().Select(v => v.ToString()).ToList(); }
 
         public string CommunicationType { get; set; }
         #endregion
@@ -77,7 +72,7 @@ namespace OA.Public.Maui.SampleApp.ViewModels
                         Description = "This is the Kitchen printer",
                         AccessKey = "88b5828b87024c8783b7a95c2081dd",
                         AccessCode = "ofo112233",
-                        CommunicationType = PrinterCommunicationType.Network,
+                        CommunicationType = PrinterCommunicationType.Network.ToString(),
                         NetworkIPAddress = "192.168.192.168",
                         NetworkPort = "9100",
                         IsPrinterMonitorActive = false,
@@ -108,7 +103,7 @@ namespace OA.Public.Maui.SampleApp.ViewModels
                         Description = "This is the Kitchen printer",
                         AccessKey = "88b5828b87024c8783b7a95c2081dd",
                         AccessCode = "ofo112233",
-                        CommunicationType = PrinterCommunicationType.Network,
+                        CommunicationType = PrinterCommunicationType.Network.ToString(),
                         NetworkIPAddress = "192.168.192.168",
                         NetworkPort = "9100",
                         IsPrinterMonitorActive = false,

@@ -30,8 +30,8 @@ namespace OA.Public.Maui.SampleApp.Views
 
         //    if (_vm != null && selectedIndex != -1)
         //    {
-        //        App.AlertSvc.ShowAlert("Test", _vm.PrinterInfo.CommunicationType.ToString());
-        //        App.AlertSvc.ShowAlert("Test", (string)picker.ItemsSource[selectedIndex]);
+        //        //App.AlertSvc.ShowAlert("Test", _vm.PrinterInfo.CommunicationType.ToString());
+        //        //App.AlertSvc.ShowAlert("Test", (string)picker.ItemsSource[selectedIndex]);
         //        //_vm.PrinterInfo.CommunicationType = (string)picker.ItemsSource[selectedIndex];
         //    }
         //}

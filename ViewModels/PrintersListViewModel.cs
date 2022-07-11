@@ -36,7 +36,7 @@ namespace OA.Public.Maui.SampleApp.ViewModels
                 Description = "This is the Kitchen printer",
                 AccessKey = "88b5828b87024c8783b7a95c2081dd",
                 AccessCode = "ofo112233",
-                CommunicationType = PrinterCommunicationType.Network,
+                CommunicationType = PrinterCommunicationType.Network.ToString(),
                 NetworkIPAddress = "192.168.192.168",
                 NetworkPort = "9100",
                 IsPrinterMonitorActive = false,
