@@ -22,9 +22,16 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
         public string Mode { get; set; }
 
+        public IEnumerable<SerialComPort> SerialComPorts { get => Enum.GetValues(typeof(SerialComPort)).Cast<SerialComPort>(); }
+
+        public IEnumerable<PrinterCommunicationType> PrinterCommunicationTypes { get => Enum.GetValues(typeof(PrinterCommunicationType)).Cast<PrinterCommunicationType>(); }
+
+        public string CommunicationType { get; set; }
         #endregion
 
+
         #region Commands
+        public ICommand CommunicationTypeChanged { get; set; }
 
         public ICommand CreateCommand { get; set; }
         public ICommand OpenListDialogCommand { get; set; }
@@ -37,7 +44,9 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
         public AddEditPrinterViewModel()
         {
+            PrinterInfo = new PrinterInfo();
 
+            CommunicationTypeChanged = new Command(CommunicationTypeChangedHandler);
             CreateCommand = new Command(CreateCommandHandler);
             OpenListDialogCommand = new Command(OpenListDialogCommandHandler);
 
@@ -45,7 +54,14 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
         #endregion
 
+
         #region Command Handlers
+
+        private async void CommunicationTypeChangedHandler()
+        {
+
+        }
+
 
         private async void CreateCommandHandler()
         {

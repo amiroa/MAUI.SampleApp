@@ -174,6 +174,19 @@
                 Value="Center" />
     </Style>
 
+    <Style TargetType="Picker">
+        <Setter Property="FontFamily"
+                Value="SegoeUiRegular" />
+        <Setter Property="FontSize"
+                Value="16" />
+        <Setter Property="TextColor"
+                Value="{AppThemeBinding Light={StaticResource Grey8}, Dark={StaticResource Grey1}}" />
+        <Setter Property="BackgroundColor"
+                Value="{AppThemeBinding Light={StaticResource Grey4}, Dark={StaticResource Grey7}}" />
+        <Setter Property="Margin"
+                Value="10,0,5,0" />
+    </Style>
+    
     <Style TargetType="Entry">
         <Setter Property="FontFamily"
                 Value="SegoeUiRegular" />
