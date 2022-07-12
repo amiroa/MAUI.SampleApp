@@ -25,6 +25,14 @@
     <Color x:Key="Grey9">#323130</Color>
     <Color x:Key="Grey0">#979797</Color>
 
+    <Style x:Key="ValidEntryStyle" TargetType="Entry">
+        <Setter Property="TextColor" Value="Green"/>
+    </Style>
+
+    <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+        <Setter Property="TextColor" Value="Red" />
+    </Style>
+
     <converters:IsStringEqualConverter x:Key="IsStringEqualConverter"/>
 
     <Style x:Key="BaseStyle"  TargetType="Element">

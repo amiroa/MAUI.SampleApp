@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using OA.Public.Maui.SampleApp.Services.Database;
+﻿using OA.Public.Maui.SampleApp.Services.Database;
 
 namespace OA.Public.Maui.SampleApp.ViewModels
 {
@@ -23,22 +22,8 @@ namespace OA.Public.Maui.SampleApp.ViewModels
         [RelayCommand]
         async Task Add()
         {
-            await DatabaseService.Add(new PrinterInfo()
-            {
-                Id = 2,
-                Name = "Kitchen",
-                DisplayName = "Kitchen Printer",
-                Description = "This is the Kitchen printer",
-                AccessKey = "88b5828b87024c8783b7a95c2081dd",
-                AccessCode = "ofo112233",
-                CommunicationType = PrinterCommunicationType.Network.ToString(),
-                NetworkIPAddress = "192.168.192.168",
-                NetworkPort = "9100",
-                IsPrinterMonitorActive = false,
-                CreatedOn = DateTime.Now,
-                IsActive = false
-            });
-            await Refresh();
+            await Shell.Current.GoToAsync($"{nameof(AddEditPrinterPage)}");
+            //await Refresh();
         }
 
         [RelayCommand]
@@ -58,7 +43,8 @@ namespace OA.Public.Maui.SampleApp.ViewModels
         async Task Edit(PrinterInfo printerInfo)
         {
             //Edit record
-            await Refresh();
+            await Shell.Current.GoToAsync($"{nameof(AddEditPrinterPage)}?PrinterId={printerInfo.Id}");
+            //await Refresh();
         }
 
         [RelayCommand]

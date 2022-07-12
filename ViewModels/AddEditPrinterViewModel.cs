@@ -5,6 +5,7 @@ using static SQLite.SQLite3;
 
 namespace OA.Public.Maui.SampleApp.ViewModels
 {
+    [QueryProperty(nameof(PrinterId), nameof(PrinterId))]
     public partial class AddEditPrinterViewModel : ObservableValidator
     {
         #region properties
@@ -70,13 +71,40 @@ namespace OA.Public.Maui.SampleApp.ViewModels
         public IEnumerable<string> SerialComPorts { get => Enum.GetValues(typeof(SerialComPort)).Cast<SerialComPort>().Select(v => v.ToString()).ToList(); }
 
         public IEnumerable<string> PrinterCommunicationTypes { get => Enum.GetValues(typeof(PrinterCommunicationType)).Cast<PrinterCommunicationType>().Select(v => v.ToString()).ToList(); }
+
+        public string PrinterId { get; set; }
+
         #endregion
 
 
         public AddEditPrinterViewModel()
         {
-            if (id == null)
-                ResetObjects();
+            ResetObjects();
+
+        }
+
+        public async Task LoadForm()
+        {
+            id = !string.IsNullOrEmpty(PrinterId) ? Convert.ToInt32(PrinterId) : null;
+            if (id != null)
+            {
+                PrinterInfo = await DatabaseService.Get<PrinterInfo>(id);
+                if (PrinterInfo != null)
+                {                    
+                    Name = PrinterInfo.Name;
+                    AccessKey = PrinterInfo.AccessKey;
+                    AccessCode = PrinterInfo.AccessCode;
+                    IsActive = PrinterInfo.IsActive;
+                    DisplayName = PrinterInfo.DisplayName;
+                    Description = PrinterInfo.Description;
+                    CommunicationType = PrinterInfo.CommunicationType.ToString();
+                    SerialComPort = PrinterInfo.SerialComPort.ToString();
+                    SerialBaudRate = PrinterInfo.SerialBaudRate;
+                    NetworkIPAddress = PrinterInfo.NetworkIPAddress;
+                    NetworkPort = PrinterInfo.NetworkPort;
+                    IsPrinterMonitorActive = PrinterInfo.IsPrinterMonitorActive;
+                }
+            }
         }
 
         [RelayCommand]
@@ -99,9 +127,10 @@ namespace OA.Public.Maui.SampleApp.ViewModels
                 PrinterInfo.DisplayName = displayName;
                 PrinterInfo.Description = description;
                 PrinterInfo.CommunicationType = communicationType;
-                if(communicationType == PrinterCommunicationType.Network.ToString())
+                PrinterInfo.IsPrinterMonitorActive = isPrinterMonitorActive;
+                if (communicationType == PrinterCommunicationType.Network.ToString())
                 {
-                    if(string.IsNullOrEmpty(networkIPAddress) || string.IsNullOrEmpty(networkPort))
+                    if (string.IsNullOrEmpty(networkIPAddress) || string.IsNullOrEmpty(networkPort))
                     {
                         App.AlertSvc.ShowAlert("Oops!", "Please provide network communication details.");
                         return;
@@ -109,23 +138,25 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
                     PrinterInfo.NetworkIPAddress = networkIPAddress;
                     PrinterInfo.NetworkPort = networkPort;
+                    PrinterInfo.SerialComPort = string.Empty;
+                    PrinterInfo.SerialBaudRate = 115200;
                 }
                 else //Serial
                 {
-                    if (string.IsNullOrEmpty(networkIPAddress) || string.IsNullOrEmpty(networkPort))
+                    if (string.IsNullOrEmpty(serialComPort) || serialBaudRate <= 0)
                     {
                         App.AlertSvc.ShowAlert("Oops!", "Please provide serial communication details.");
                         return;
                     }
                     PrinterInfo.SerialComPort = serialComPort;
                     PrinterInfo.SerialBaudRate = serialBaudRate;
+                    PrinterInfo.NetworkIPAddress = string.Empty;
+                    PrinterInfo.NetworkPort = "9100";
                 }
-
-                PrinterInfo.IsPrinterMonitorActive = IsPrinterMonitorActive;
 
                 if (id != null)//(Mode == "Edit")
                 {
-                    await DatabaseService.Add(PrinterInfo);
+                    await DatabaseService.Update(PrinterInfo);
                     App.AlertSvc.ShowAlert("Edit Printer", "Printer details updated succsessfully.");
                 }
                 else
@@ -145,24 +176,24 @@ namespace OA.Public.Maui.SampleApp.ViewModels
         }
 
 
-        private void ResetObjects()
+        public void ResetObjects()
         {
-            name = string.Empty;
-            accessKey = string.Empty;
-            accessCode = string.Empty;
-            isActive = true;
-            displayName = string.Empty;
-            description = string.Empty;
-            communicationType = PrinterCommunicationType.Network.ToString();
-            networkIPAddress = string.Empty;
-            networkPort = string.Empty;
-            serialBaudRate = 0;
-            serialComPort = string.Empty;
-            isPrinterMonitorActive = false;
+            Name = string.Empty;
+            AccessKey = string.Empty;
+            AccessCode = string.Empty;
+            IsActive = true;
+            DisplayName = string.Empty;
+            Description = string.Empty;
+            CommunicationType = PrinterCommunicationType.Network.ToString();
+            NetworkIPAddress = string.Empty;
+            NetworkPort = "9100"; //default port
+            SerialBaudRate = 115200; //default baud rate
+            SerialComPort = string.Empty;
+            IsPrinterMonitorActive = false;
 
             PrinterInfo = new PrinterInfo();
-            PrinterInfo.CommunicationType = communicationType;
             PrinterInfo.IsActive = isActive;
+            PrinterInfo.CommunicationType = communicationType;
         }
     }
 }

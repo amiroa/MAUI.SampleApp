@@ -52,8 +52,7 @@
                 <Picker Grid.Row="5" Grid.Column="1" 
                         x:Name="selectedPrinterCommunicationType"                        
                         ItemsSource="{Binding PrinterCommunicationTypes}" 
-                        SelectedItem="{Binding CommunicationType}"   
-                        /><!-- SelectedIndexChanged="selectedPrinterCommunicationType_SelectedIndexChanged"-->
+                        SelectedItem="{Binding CommunicationType}" />
 
                 <VerticalStackLayout Grid.Row="6" Grid.ColumnSpan="2" 
                                      IsVisible="{Binding CommunicationType, Converter={mcc:IsEqualConverter}, ConverterParameter='Serial'}">

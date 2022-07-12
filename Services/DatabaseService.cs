@@ -27,6 +27,14 @@ namespace OA.Public.Maui.SampleApp.Services.Database
             await _connection.InsertAsync(record);
         }
 
+        public static async Task Update(object record)
+        {
+            await Init();
+
+            await _connection.UpdateAsync(record);
+        }
+
+
         public static async Task Remove(object record)
         {
             await Init();

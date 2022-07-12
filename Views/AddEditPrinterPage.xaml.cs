@@ -31,15 +31,17 @@ namespace OA.Public.Maui.SampleApp.Views
             if (_vm != null && selectedIndex != -1)
             {
                 _vm.CommunicationType = (string)picker.ItemsSource[selectedIndex];
-                //App.AlertSvc.ShowAlert("Test", _vm.PrinterInfo.CommunicationType.ToString());
-                //App.AlertSvc.ShowAlert("Test", (string)picker.ItemsSource[selectedIndex]);
-                //_vm.PrinterInfo.CommunicationType = (string)picker.ItemsSource[selectedIndex];
             }
         }
 
-        //protected override void OnNavigatedTo(NavigatedToEventArgs args)
-        //{
-        //    base.OnNavigatedTo(args);
-        //}
+        protected override async void OnAppearing()
+        {
+            if(_vm != null)
+            {
+                await _vm.LoadForm();
+            }
+
+            base.OnAppearing();
+        }
     }
 }

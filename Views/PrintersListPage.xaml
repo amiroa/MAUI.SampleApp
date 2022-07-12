@@ -9,7 +9,7 @@
              x:DataType="viewmodels:PrintersListViewModel">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddCommand}" />
+        <ToolbarItem Text="Add" IconImageSource="printer.png" Command="{Binding AddCommand}" />
     </ContentPage.ToolbarItems>
 
     <CollectionView ItemsSource="{Binding PrinterInfoList}"
