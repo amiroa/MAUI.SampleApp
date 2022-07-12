@@ -23,18 +23,19 @@ namespace OA.Public.Maui.SampleApp.Views
             }
         }
 
-        //private void selectedPrinterCommunicationType_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    var picker = (Picker)sender;
-        //    int selectedIndex = picker.SelectedIndex;
+        private void selectedPrinterCommunicationType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            int selectedIndex = picker.SelectedIndex;
 
-        //    if (_vm != null && selectedIndex != -1)
-        //    {
-        //        //App.AlertSvc.ShowAlert("Test", _vm.PrinterInfo.CommunicationType.ToString());
-        //        //App.AlertSvc.ShowAlert("Test", (string)picker.ItemsSource[selectedIndex]);
-        //        //_vm.PrinterInfo.CommunicationType = (string)picker.ItemsSource[selectedIndex];
-        //    }
-        //}
+            if (_vm != null && selectedIndex != -1)
+            {
+                _vm.CommunicationType = (string)picker.ItemsSource[selectedIndex];
+                //App.AlertSvc.ShowAlert("Test", _vm.PrinterInfo.CommunicationType.ToString());
+                //App.AlertSvc.ShowAlert("Test", (string)picker.ItemsSource[selectedIndex]);
+                //_vm.PrinterInfo.CommunicationType = (string)picker.ItemsSource[selectedIndex];
+            }
+        }
 
         //protected override void OnNavigatedTo(NavigatedToEventArgs args)
         //{

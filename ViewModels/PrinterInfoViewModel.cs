@@ -1,10 +1,10 @@
 ﻿namespace OA.Public.Maui.SampleApp.ViewModels;
 
-public class PrinterInfoViewModel : BaseViewModel
+public class PrinterInfoViewModel : ObservableObject
 {
     public PrinterInfo PrinterInfo { get; set; }
 
-    public new string Title { get => string.IsNullOrEmpty(PrinterInfo?.DisplayName) ? PrinterInfo?.Name : PrinterInfo?.DisplayName; }
+    public string Title { get => string.IsNullOrEmpty(PrinterInfo?.DisplayName) ? PrinterInfo?.Name : PrinterInfo?.DisplayName; }
 
     public string Description { get => PrinterInfo?.Description; }
 

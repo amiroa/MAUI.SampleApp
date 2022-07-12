@@ -1,17 +1,16 @@
 ﻿using System.ComponentModel;
+using static SQLite.SQLite3;
 
 namespace OA.Public.Maui.SampleApp.ViewModels
 {
-    public class AddEditPrinterViewModel : BaseViewModel, INotifyPropertyChanged
+    public partial class AddEditPrinterViewModel : ObservableObject
     {
-        #region Private & Protected
-
         private bool _archived;
         private string _id;
 
-        #endregion
 
-        #region Properties
+        [ObservableProperty]
+        private string communicationType;
 
         public PrinterInfo PrinterInfo { get; set; }
 
@@ -21,44 +20,30 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
         public IEnumerable<string> PrinterCommunicationTypes { get => Enum.GetValues(typeof(PrinterCommunicationType)).Cast<PrinterCommunicationType>().Select(v => v.ToString()).ToList(); }
 
-        public string CommunicationType { get; set; }
-        #endregion
 
-
-        #region Commands
-        public ICommand CommunicationTypeChanged { get; set; }
-
-        public ICommand CreateCommand { get; set; }
-        public ICommand OpenListDialogCommand { get; set; }
-
-        public ICommand ValidateCommand { get; set; }
-
-        #endregion
-
-        #region Constructors
 
         public AddEditPrinterViewModel()
         {
             PrinterInfo = new PrinterInfo();
-
-            CommunicationTypeChanged = new Command(CommunicationTypeChangedHandler);
-            CreateCommand = new Command(CreateCommandHandler);
-            OpenListDialogCommand = new Command(OpenListDialogCommandHandler);
-
-        }
-
-        #endregion
-
-
-        #region Command Handlers
-
-        private async void CommunicationTypeChangedHandler()
-        {
-
         }
 
 
-        private async void CreateCommandHandler()
+
+        //[RelayCommand]
+        //private void CommunicationTypeChanged(object sender, EventArgs e)
+        //{
+        //    var picker = (Picker)sender;
+        //    int selectedIndex = picker.SelectedIndex;
+
+        //    if (selectedIndex != -1)
+        //    {
+        //        communicationType = (string)picker.ItemsSource[selectedIndex];
+        //    }
+            
+        //}
+
+        [RelayCommand]
+        private async void Create()
         {
             try
             {
@@ -136,17 +121,5 @@ namespace OA.Public.Maui.SampleApp.ViewModels
             }
         }
 
-        private void OpenListDialogCommandHandler()
-        {
-
-
-        }
-
-        #endregion
-
-        #region Private Methods
-
-
-        #endregion
     }
 }

@@ -2,7 +2,7 @@
 
 namespace OA.Public.Maui.SampleApp.ViewModels
 {
-    public partial class SettingsViewModel : BaseViewModel
+    public partial class SettingsViewModel : ObservableObject
     {
         #region Private & Protected
 
@@ -12,6 +12,12 @@ namespace OA.Public.Maui.SampleApp.ViewModels
         #endregion
 
         #region Properties
+
+        [ObservableProperty]
+        private string title;
+
+        [ObservableProperty]
+        private bool isBusy;
 
         public bool IsDarkModeEnabled
         {

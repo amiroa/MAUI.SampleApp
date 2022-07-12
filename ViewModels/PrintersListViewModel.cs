@@ -1,31 +1,26 @@
-﻿using MvvmHelpers;
-using MvvmHelpers.Commands;
+﻿using CommunityToolkit.Mvvm.Input;
 using OA.Public.Maui.SampleApp.Services.Database;
 
 namespace OA.Public.Maui.SampleApp.ViewModels
 {
-    public class PrintersListViewModel : BaseViewModel
-    {      
+    public partial class PrintersListViewModel : ObservableObject
+    {
+        [ObservableProperty]
+        private string title;
+
+        [ObservableProperty]
+        private bool isBusy;
+
         public ObservableCollection<PrinterInfo> PrinterInfoList { get; set; }
         
-        public AsyncCommand RefreshCommand { get; }                
-        public AsyncCommand AddCommand { get; }        
-        public AsyncCommand<PrinterInfo> RemoveCommand { get; }
-        public AsyncCommand<PrinterInfo> EditCommand { get; }
-
-
         public PrintersListViewModel()
         {            
             Title = "Printers";
 
-            PrinterInfoList = new ObservableCollection<PrinterInfo>();
-            
-            RefreshCommand = new AsyncCommand(Refresh);
-            AddCommand = new AsyncCommand(Add);
-            RemoveCommand = new AsyncCommand<PrinterInfo>(Remove);
-            EditCommand = new AsyncCommand<PrinterInfo>(Edit);
+            PrinterInfoList = new ObservableCollection<PrinterInfo>();            
         }
 
+        [RelayCommand]
         async Task Add()
         {
             await DatabaseService.Add(new PrinterInfo()
@@ -46,6 +41,7 @@ namespace OA.Public.Maui.SampleApp.ViewModels
             await Refresh();
         }
 
+        [RelayCommand]
         async Task Remove(PrinterInfo printerInfo)
         {
             App.AlertSvc.ShowConfirmation("Warning", "Are you sure you want to delete the selcted Printer?", (async (result) =>
@@ -58,12 +54,14 @@ namespace OA.Public.Maui.SampleApp.ViewModels
             }));
         }
 
+        [RelayCommand]
         async Task Edit(PrinterInfo printerInfo)
         {
             //Edit record
             await Refresh();
         }
 
+        [RelayCommand]
         public async Task Refresh()
         {
             IsBusy = true;

@@ -1,10 +1,9 @@
-﻿using MvvmHelpers.Commands;
+﻿using CommunityToolkit.Mvvm.Input;
 using OA.Public.Maui.SampleApp.Services.Database;
 
 namespace OA.Public.Maui.SampleApp.ViewModels
 {
-    [QueryProperty(nameof(Id), nameof(Id))]
-    public class PrinterInfoAddEditViewModel : BaseViewModel
+    public partial class PrinterInfoAddEditViewModel : ObservableValidator
     {
         public int Id { get; set; }
         private int printerInfoId;
@@ -16,9 +15,6 @@ namespace OA.Public.Maui.SampleApp.ViewModels
             get => printerInfo;
             set => SetProperty(ref printerInfo, value);
         }
-
-        public ICommand SaveCommand => new AsyncCommand<PrinterInfo>(SaveCommandExecute);
-        public ICommand CancelCommand => new AsyncCommand(CancelCommandExecute);
 
         public PrinterInfoAddEditViewModel()
         {
@@ -55,15 +51,16 @@ namespace OA.Public.Maui.SampleApp.ViewModels
             PrinterInfo = printerInfoVM;
         }
 
-
-        private async Task SaveCommandExecute(PrinterInfo episode)
+        [RelayCommand]
+        private async Task Save(PrinterInfo episode)
         {
 
         }
 
-        private Task CancelCommandExecute()
+        [RelayCommand]
+        private void Cancel()
         {
-            return null;
+
         }
     }
 }

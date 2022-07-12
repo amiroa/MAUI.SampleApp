@@ -1,4 +1,5 @@
-﻿global using MvvmHelpers;
+﻿global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;
 global using OA.Public.Maui.SampleApp.Helpers;
 global using OA.Public.Maui.SampleApp.Services;
 global using OA.Public.Maui.SampleApp.Models;
