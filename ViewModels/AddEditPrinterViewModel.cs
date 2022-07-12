@@ -116,7 +116,8 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
                 if (HasErrors)
                 {
-                    App.AlertSvc.ShowAlert("Oops!", "Please provide all the required values in the form.");
+                    var formErrors = GetErrors();
+                    App.AlertSvc.ShowAlert("Oops!", $"Please provide all the required values in the form. {formErrors.FirstOrDefault()?.ErrorMessage}");
                     return;
                 }
 
