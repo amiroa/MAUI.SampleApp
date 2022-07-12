@@ -29,30 +29,30 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <Label Grid.Row="0" Text="Name:*" />
-                <Entry Grid.Row="0" Grid.Column="1" Placeholder="Enter Name" Text="{Binding PrinterInfo.Name}" />
+                <Entry Grid.Row="0" Grid.Column="1" Placeholder="Enter Name" Text="{Binding Name}" />
 
-                <Label Grid.Row="1" Text="Display Name:" />
-                <Entry Grid.Row="1" Grid.Column="1" Placeholder="Enter Display Name" Text="{Binding PrinterInfo.DisplayName}" />
+                <Label Grid.Row="1" Text="Is Printer Active:" />
+                <Switch Grid.Row="1" Grid.Column="1" Margin="15,0" IsToggled="{Binding IsActive}" />
 
-                <Label Grid.Row="2" Text="Description:" />
-                <Entry Grid.Row="2" Grid.Column="1" Placeholder="Enter Description" Text="{Binding PrinterInfo.Description}" />
+                <Label Grid.Row="2" Text="Display Name:" />
+                <Entry Grid.Row="2" Grid.Column="1" Placeholder="Enter Display Name" Text="{Binding DisplayName}" />
 
                 <Label Grid.Row="3" Text="Access Key:*" />
-                <Entry Grid.Row="3" Grid.Column="1" Placeholder="Enter Access Key" Text="{Binding PrinterInfo.AccessKey}" />
+                <Entry Grid.Row="3" Grid.Column="1" Placeholder="Enter Access Key" Text="{Binding AccessKey}" />
 
                 <Label Grid.Row="4" Text="Access Code:*" />
-                <Entry Grid.Row="4" Grid.Column="1" Placeholder="Enter Access Code" Text="{Binding PrinterInfo.AccessCode}" />
+                <Entry Grid.Row="4" Grid.Column="1" Placeholder="Enter Access Code" Text="{Binding AccessCode}" />
 
                 <Label Grid.Row="5" Text="Communication Type:*" />
                 <Picker Grid.Row="5" Grid.Column="1" 
                         x:Name="selectedPrinterCommunicationType"                        
                         ItemsSource="{Binding PrinterCommunicationTypes}" 
-                        SelectedItem="{Binding PrinterInfo.CommunicationType}"   
-                        SelectedIndexChanged="selectedPrinterCommunicationType_SelectedIndexChanged"
+                        SelectedItem="{Binding CommunicationType}"   
                         /><!-- SelectedIndexChanged="selectedPrinterCommunicationType_SelectedIndexChanged"-->
 
                 <VerticalStackLayout Grid.Row="6" Grid.ColumnSpan="2" 
@@ -71,10 +71,10 @@
                         <Picker Grid.Row="0" Grid.Column="1" 
                             x:Name="selectedSerialComPort"
                             ItemsSource="{Binding SerialComPorts}" 
-                            SelectedItem="{Binding PrinterInfo.SerialComPort}"/>
+                            SelectedItem="{Binding SerialComPort}"/>
 
                         <Label Grid.Row="1" Text="Serial Baud Rate:" />
-                        <Entry Grid.Row="1" Grid.Column="1" Placeholder="Enter Serial Baud Rate" Text="{Binding PrinterInfo.SerialBaudRate}" />
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder="Enter Serial Baud Rate" Text="{Binding SerialBaudRate}" />
                     </Grid>
                 </VerticalStackLayout>
 
@@ -90,15 +90,18 @@
                         </Grid.RowDefinitions>
 
                         <Label Grid.Row="0" Text="Network IP Address:" />
-                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="Network IP Address" Text="{Binding PrinterInfo.NetworkIPAddress}"/>
+                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="Network IP Address" Text="{Binding NetworkIPAddress}"/>
 
                         <Label Grid.Row="1" Text="Network Port:" />
-                        <Entry Grid.Row="1" Grid.Column="1" Placeholder="Network Port" Text="{Binding PrinterInfo.NetworkPort}"/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder="Network Port" Text="{Binding NetworkPort}"/>
                     </Grid>
                 </VerticalStackLayout>
                    
                 <Label Grid.Row="10" Text="Is Printer Monitor Active:" />
-                <Switch Grid.Row="10" Grid.Column="1" Margin="15,0" IsToggled="{Binding PrinterInfo.IsPrinterMonitorActive}" />
+                <Switch Grid.Row="10" Grid.Column="1" Margin="15,0" IsToggled="{Binding IsPrinterMonitorActive}" />
+
+                <Label Grid.Row="11" Text="Description:" />
+                <Entry Grid.Row="11" Grid.Column="1" Placeholder="Enter Description" Text="{Binding Description}" />
             </Grid>
 
             <Button
