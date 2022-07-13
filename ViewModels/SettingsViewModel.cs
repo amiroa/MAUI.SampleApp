@@ -54,7 +54,6 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
             Title = "Settings";
         }
-
         private void ChangeUserAppTheme(bool activateDarkMode)
         {
             Settings.Theme = activateDarkMode

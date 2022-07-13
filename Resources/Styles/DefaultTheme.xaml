@@ -5,7 +5,6 @@
                     xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
                     xmlns:converters="clr-namespace:OA.Public.Maui.SampleApp.Converters">
 
-
     <Color x:Key="Black">#000000</Color>
     <Color x:Key="Dark">#1F1F1F</Color>
     <Color x:Key="Primary">#ff7043</Color>
@@ -32,8 +31,6 @@
     <Style x:Key="InvalidEntryStyle" TargetType="Entry">
         <Setter Property="TextColor" Value="Red" />
     </Style>
-
-    <converters:IsStringEqualConverter x:Key="IsStringEqualConverter"/>
 
     <Style x:Key="BaseStyle"  TargetType="Element">
         <Setter Property="Shell.BackgroundColor" 

@@ -23,7 +23,6 @@ namespace OA.Public.Maui.SampleApp.ViewModels
         async Task Add()
         {
             await Shell.Current.GoToAsync($"{nameof(AddEditPrinterPage)}");
-            //await Refresh();
         }
 
         [RelayCommand]
@@ -44,7 +43,6 @@ namespace OA.Public.Maui.SampleApp.ViewModels
         {
             //Edit record
             await Shell.Current.GoToAsync($"{nameof(AddEditPrinterPage)}?PrinterId={printerInfo.Id}");
-            //await Refresh();
         }
 
         [RelayCommand]

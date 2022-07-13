@@ -5,11 +5,15 @@
 			 
     <ScrollView>
         <VerticalStackLayout 
-            Spacing="25" 
-            Padding="30,0" 
-            VerticalOptions="Center">
+            Spacing="25"             
+            Padding="30,50" 
+            VerticalOptions="Start">
 
-            
+            <Label Text=".NET MAUI - Sample Application" Style="{StaticResource H4LabelStyle}" />
+            <Label Text="The OA .NET MAUI sample app is a sample application showcasing .NET 6, ASP.NET Core, .NET MAUI, and more." />
+            <Label Text="By Amir R (GitHub: https://github.com/amiroa)" />
+            <Label Text="2022" Style="{StaticResource BodySLabelStyle}" />
+
 
         </VerticalStackLayout>
     </ScrollView>

@@ -66,9 +66,6 @@
 	  <Compile Update="Views\PrintersListPage.xaml.cs">
 	    <DependentUpon>PrintersListPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\PrinterInfoAddEditPage.xaml.cs">
-	    <DependentUpon>PrinterInfoAddEditPage.xaml</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -88,9 +85,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SettingsPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PrinterInfoAddEditPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

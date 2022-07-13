@@ -18,7 +18,6 @@ namespace OA.Public.Maui.SampleApp.Services
             return Application.Current.MainPage.DisplayAlert(title, message, accept, cancel);
         }
 
-
         public void ShowAlert(string title, string message, string cancel = "OK")
         {
             Application.Current.MainPage.Dispatcher.Dispatch(async () =>

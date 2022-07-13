@@ -20,16 +20,13 @@
         </Grid>
     </Shell.FlyoutHeader>
 
-    <!--<ShellContent Title="{Binding AddEditPrinter.Title}"
-                  Icon="{AppThemeBinding Light=printers.png, Dark=printers.png}"
-                  ContentTemplate="{DataTemplate pages:AddEditPrinterPage}"/>-->
+    <ShellContent Title="{Binding About.Title}"
+                  Icon="{AppThemeBinding Light=about.png, Dark=about.png}"
+                  ContentTemplate="{DataTemplate pages:AboutPage}" />
     <ShellContent Title="{Binding PrintersList.Title}"
                   Icon="{AppThemeBinding Light=printers.png, Dark=printers.png}"
                   ContentTemplate="{DataTemplate pages:PrintersListPage}"/>
     <ShellContent Title="{Binding Settings.Title}"
                   Icon="{AppThemeBinding Light=settings.png, Dark=settings.png}"
                   ContentTemplate="{DataTemplate pages:SettingsPage}" />
-    <ShellContent Title="{Binding About.Title}"
-                  Icon="{AppThemeBinding Light=about.png, Dark=about.png}"
-                  ContentTemplate="{DataTemplate pages:AboutPage}" />
 </Shell>

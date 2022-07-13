@@ -21,9 +21,7 @@ public partial class App : Application
         else
             MainPage = new MobileShell();
 
-
-        Routing.RegisterRoute(nameof(AddEditPrinterPage), typeof(AddEditPrinterPage));
-        
+        Routing.RegisterRoute(nameof(AddEditPrinterPage), typeof(AddEditPrinterPage));        
         Routing.RegisterRoute(nameof(PrintersListPage), typeof(PrintersListPage));
         Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
         Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
