@@ -1,7 +1,5 @@
 ﻿using OA.Public.Maui.SampleApp.Services.Database;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using static SQLite.SQLite3;
 
 namespace OA.Public.Maui.SampleApp.ViewModels
 {
@@ -78,16 +76,17 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
 
         public AddEditPrinterViewModel()
-        {
+        {           
             ResetObjects();
-
         }
 
         public async Task LoadForm()
         {
             id = !string.IsNullOrEmpty(PrinterId) ? Convert.ToInt32(PrinterId) : null;
+            PrinterId = string.Empty;
             if (id != null)
             {
+                Mode = "Edit";
                 PrinterInfo = await DatabaseService.Get<PrinterInfo>(id);
                 if (PrinterInfo != null)
                 {                    
@@ -104,6 +103,9 @@ namespace OA.Public.Maui.SampleApp.ViewModels
                     NetworkPort = PrinterInfo.NetworkPort;
                     IsPrinterMonitorActive = PrinterInfo.IsPrinterMonitorActive;
                 }
+            } else
+            {
+                ResetObjects();
             }
         }
 
@@ -179,6 +181,8 @@ namespace OA.Public.Maui.SampleApp.ViewModels
 
         public void ResetObjects()
         {
+            Mode = "Add";
+
             Name = string.Empty;
             AccessKey = string.Empty;
             AccessCode = string.Empty;

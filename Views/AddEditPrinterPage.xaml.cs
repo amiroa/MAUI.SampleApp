@@ -10,17 +10,6 @@ namespace OA.Public.Maui.SampleApp.Views
             InitializeComponent();
             _vm = vm;
             BindingContext = vm;
-
-            vm.Mode = "Add";
-
-            if (vm.Mode == "Edit")
-            {
-                Title = "Edit Printer";
-            }
-            else
-            {
-                Title = "Add Printer";
-            }
         }
 
         private void selectedPrinterCommunicationType_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,9 +25,18 @@ namespace OA.Public.Maui.SampleApp.Views
 
         protected override async void OnAppearing()
         {
-            if(_vm != null)
+            if (_vm != null)
             {
                 await _vm.LoadForm();
+            }
+
+            if (_vm.Mode == "Edit")
+            {
+                Title = "Edit Printer";
+            }
+            else
+            {
+                Title = "Add Printer";
             }
 
             base.OnAppearing();
